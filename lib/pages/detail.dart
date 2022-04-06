@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_demo/widgets/topbar.dart';
+
+class DetailPage extends StatelessWidget {
+  const DetailPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: const Topbar(),
+      body: Center(
+        child: Text('Hello'),
+      ),
+    );
+  }
+}
