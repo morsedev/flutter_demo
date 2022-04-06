@@ -20,6 +20,9 @@ class GotoappPage extends StatelessWidget {
             },
             child: Text('Go to Shoe Store'),
           ),
+          const SizedBox(
+            height: 20,
+          ),
           ElevatedButton(
             onPressed: () {
               Navigator.push(

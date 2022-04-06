@@ -1,12 +1,23 @@
+import 'dart:ui';
+
 import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '/pages/home.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Flame.device.fullScreen();
   runApp(const MyApp());
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        // etc.
+      };
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +27,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
+      scrollBehavior: MyCustomScrollBehavior(),
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark(),
       title: 'Flutter Demo',
